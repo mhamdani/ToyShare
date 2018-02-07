@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "mom_app",
+    "username": "root1",
+    "password": "",
+    "database": "Bamazon",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
