@@ -1,7 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     // Giving the User model a name of type STRING
-    poster_name: DataTypes.STRING
+    poster_name: DataTypes.STRING,
+    email:DataTypes.STRING,
+    password:DataTypes.STRING,
+    phone: DataTypes.STRING
   });
 
   User.associate = (models) => {

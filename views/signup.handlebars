@@ -1,0 +1,60 @@
+<div class="error">
+    <p id="error"></p>
+</div>
+
+
+<form > 
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name = "email" id = "email">
+    </div>
+
+    <div>
+        <label for="phone">Phone</label>
+        <input type="tel" name = "phone" id = "phone">
+    </div>
+
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name = "password" id = "password">
+    </div>
+
+    <button class = "btn btn-primary">Signup</button>
+
+    <a href="/signin">Go to the Signin Page</a>
+</form>
+
+
+<script>
+    $("button").on("click", function(e){
+        e.preventDefault(); // stop the browser
+
+        const email = $("#email").val().trim(),
+              password = $("#password").val().trim(),
+              phone = $("#phone").val().trim();
+
+        const user = {
+            email,
+            password,
+            phone
+        };
+
+        console.log("User: ", user);
+
+        $.post("/signup", user, function(data){
+            // TODO
+            // Send the home page
+            location.href = "/";
+        })
+        .fail((errr) => {
+            // TODO
+            // Inject the errors
+
+            const msg = JSON.parse(errr.responseText);
+
+            $("#error").html(msg.error);
+            console.log(msg.error);
+        });      
+    });
+</script>
